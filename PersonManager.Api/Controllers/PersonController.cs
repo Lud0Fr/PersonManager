@@ -27,7 +27,7 @@ namespace PersonManager.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Add([FromQuery]string keyword)
+        public async Task<IActionResult> Search([FromQuery]string keyword)
         {
             return Ok(await _queries.Search(keyword));
         }
