@@ -35,6 +35,15 @@ namespace PersonManager.Api
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddFluentValidation();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder => builder
+                .WithOrigins("http://localhost:4200", "http://localhost:8080")
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+            });
+
             ConfigureAutoMapper(services);
             ConfigureQueries(services);
             ConfigureValidators(services);
@@ -55,6 +64,7 @@ namespace PersonManager.Api
                 app.UseHsts();
             }
 
+            app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));
             app.UseMvc();

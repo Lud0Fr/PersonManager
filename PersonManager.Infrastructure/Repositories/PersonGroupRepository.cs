@@ -22,7 +22,9 @@ namespace PersonManager.Infrastructure.Repositories
                 .Include(g => g.Persons)
                 .SelectMany(g => g.Persons)
                 .Include(p => p.Group)
-                .Where(p => p.Name.Contains(keyword) || p.Group.Name.Contains(keyword))
+                .Where(p => !string.IsNullOrEmpty(keyword)
+                    ? p.Name.Contains(keyword) || p.Group.Name.Contains(keyword)
+                    : true)
                 .ToListAsync();
         }
     }
