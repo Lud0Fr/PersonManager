@@ -19,5 +19,5 @@ POST https://localhost:44385/api/person
 Get all groups:
 GET https://localhost:44385/api/group
 
-Search persons by name of group name
+Search persons by name or group name
 https://localhost:44385/api/person?keyword=name
