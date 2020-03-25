@@ -12,11 +12,8 @@ Create Person:
 POST https://localhost:44385/api/person
 
 {
-
 	"name": "Person Name",
-	
 	"groupPersonId": 1
-	
 }
 
 Get all groups:
