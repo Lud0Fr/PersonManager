@@ -1,7 +1,9 @@
 # PersonManager - Instructions
 
 1-  Update the database connection string in appsettings.json
+
 2-  Set PersonManager.Api as StartUp project    
+
 2-  Create the database by running the command Update-Database in the Package Manager Console and by selecting PersonManager.Infrastructure as default project
 
 API doc:
